@@ -45,6 +45,13 @@ class Cpanel implements CpanelInterface
      * @since v1.0.0
      */
     private $host;
+    
+    /**
+     * @var string project (whm | cpanel) of your  server. You must set it with full host with its port and protocol.
+     *
+     * @since v1.0.0
+     */
+    private $project;
 
     /**
      * @var string Sets of headers that will be sent at request.
@@ -165,6 +172,22 @@ class Cpanel implements CpanelInterface
     }
 
     /**
+     * set API Project.
+     *
+     * @param string $project (WHM or cpanel) Project  of your whm server.
+     *
+     * @return object return as self-object
+     *
+     * @since v1.0.0
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
      * set Authentication Type.
      *
      * @param string $auth_type Authentication type for calling API.
@@ -278,6 +301,18 @@ class Cpanel implements CpanelInterface
     }
 
     /**
+     * get host of your whm server.
+     *
+     * @return string project of your whm server
+     *
+     * @since v1.0.0
+     */
+    public function getProjetc()
+    {
+        return $this->project;
+    }
+
+    /**
      * get timeout.
      *
      * @return integer timeout of the Guzzle request
@@ -314,9 +349,10 @@ class Cpanel implements CpanelInterface
 
         $username = $this->getUsername();
         $auth_type = $this->getAuthType();
+        $project = $this->getProjetc;
 
         if ('hash' == $auth_type) {
-            $headers['Authorization'] = 'WHM ' . $username . ':' . preg_replace("'(\r|\n|\s|\t)'", '', $this->getPassword());
+            $headers['Authorization'] = $project . $username . ':' . preg_replace("'(\r|\n|\s|\t)'", '', $this->getPassword());
         } elseif ('password' == $auth_type) {
             $headers['Authorization'] = 'Basic ' . base64_encode($username . ':' .$this->getPassword());
         }

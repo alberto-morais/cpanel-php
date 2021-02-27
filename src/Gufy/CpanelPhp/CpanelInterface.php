@@ -41,6 +41,17 @@ interface CpanelInterface
     public function setHost($host);
 
     /**
+     * set API Project.
+     *
+     * @param string $project WHM or cpanel of your whm server.
+     *
+     * @return object return as self-object
+     *
+     * @since v1.0.0
+     */
+    public function setHost($project);
+
+    /**
      * set Authentication Type.
      *
      * @param string $auth_type Authentication type for calling API.
