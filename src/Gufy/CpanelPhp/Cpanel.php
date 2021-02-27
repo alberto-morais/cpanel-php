@@ -51,7 +51,7 @@ class Cpanel implements CpanelInterface
      *
      * @since v1.0.0
      */
-    private $project;
+    private $project = 'WHM';
 
     /**
      * @var string Sets of headers that will be sent at request.
