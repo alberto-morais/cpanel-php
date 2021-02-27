@@ -45,7 +45,7 @@ class Cpanel implements CpanelInterface
      * @since v1.0.0
      */
     private $host;
-    
+
     /**
      * @var string project (whm | cpanel) of your  server. You must set it with full host with its port and protocol.
      *
@@ -352,7 +352,7 @@ class Cpanel implements CpanelInterface
         $project = $this->getProjetc();
 
         if ('hash' == $auth_type) {
-            $headers['Authorization'] = $project . $username . ':' . preg_replace("'(\r|\n|\s|\t)'", '', $this->getPassword());
+            $headers['Authorization'] = $project. " " . $username . ':' . preg_replace("'(\r|\n|\s|\t)'", '', $this->getPassword());
         } elseif ('password' == $auth_type) {
             $headers['Authorization'] = 'Basic ' . base64_encode($username . ':' .$this->getPassword());
         }
@@ -394,7 +394,7 @@ class Cpanel implements CpanelInterface
         catch(\GuzzleHttp\Exception\ClientException $e)
         {
           if ($throw) {
-            throw $e; 
+            throw $e;
           }
           return $e->getMessage();
         }
