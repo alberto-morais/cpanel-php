@@ -349,7 +349,7 @@ class Cpanel implements CpanelInterface
 
         $username = $this->getUsername();
         $auth_type = $this->getAuthType();
-        $project = $this->getProjetc;
+        $project = $this->getProjetc();
 
         if ('hash' == $auth_type) {
             $headers['Authorization'] = $project . $username . ':' . preg_replace("'(\r|\n|\s|\t)'", '', $this->getPassword());
