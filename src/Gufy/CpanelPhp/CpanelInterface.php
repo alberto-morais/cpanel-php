@@ -49,7 +49,7 @@ interface CpanelInterface
      *
      * @since v1.0.0
      */
-    public function setHost($project);
+    public function setProject($project);
 
     /**
      * set Authentication Type.
