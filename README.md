@@ -1,5 +1,7 @@
 ## cPanel/WHM API for PHP library
 
+### This project is a fork of https://github.com/mgufrone/cpanel-php
+#### The only modification is that in this project you can select access to the whm or cpanel base
 ## Contents
 - [Installation Guide](#installation-guide)
 - [Usage](#usage)
@@ -10,11 +12,11 @@
 
 To install this package, you can run this code via your terminal
 ```shell
-	composer require gufy/cpanel-php:~2.0
+	composer require am2tec/cpanel-php:~2.0.1
 ```
 Or update your `composer.json` by adding this line
 ```json
-	"gufy/cpanel-php":"~2.0"
+	"am2tec/cpanel-php":"~2.0.1"
 ```
 
 Then, run this code
